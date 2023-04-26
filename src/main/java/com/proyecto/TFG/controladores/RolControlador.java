@@ -15,11 +15,6 @@ import java.util.List;
 public class RolControlador {
 
     @Autowired
-    public RolControlador(RolServicioImpl rolServicio) {
-        this.rolServicio = rolServicio;
-    }
-
-    @Autowired
     RolServicioImpl rolServicio;
 
     @GetMapping("/listar")
@@ -29,8 +24,8 @@ public class RolControlador {
 
     @PostMapping("/guardar")
     public ResponseEntity<Rol> guardarRol(@RequestBody Rol rol){
-        Rol nuevo = rolServicio.guardar(rol);
-        return new ResponseEntity<>(nuevo, HttpStatus.CREATED);
+        rolServicio.guardar(rol);
+        return new ResponseEntity<>(rol, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")

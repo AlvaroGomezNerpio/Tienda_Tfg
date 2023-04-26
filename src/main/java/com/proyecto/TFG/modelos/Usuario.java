@@ -30,6 +30,9 @@ public class Usuario implements Serializable {
     @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Factura> facturas;
 
+    @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Direccion> direccion;
+
     public Usuario(){
 
     }

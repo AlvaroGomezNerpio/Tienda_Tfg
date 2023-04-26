@@ -14,8 +14,6 @@ import java.util.List;
 @RequestMapping("/usuario")
 public class UsuarioControlador {
 
-
-
     @Autowired
     UsuarioServicioImpl usuarioServicio;
 

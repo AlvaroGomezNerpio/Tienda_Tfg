@@ -15,13 +15,6 @@ import java.util.List;
 public class FacturaControlador {
 
     @Autowired
-    public FacturaControlador(FacturaServicioImpl facturaServicio) {
-
-        this.facturaServicio = facturaServicio;
-
-    }
-
-    @Autowired
     FacturaServicioImpl facturaServicio;
 
     @GetMapping("/listar")
@@ -31,8 +24,8 @@ public class FacturaControlador {
 
     @PostMapping("/guardar")
     public ResponseEntity<Factura> guardarFactura(@RequestBody Factura factura){
-        Factura nuevo = facturaServicio.guardar(factura);
-        return new ResponseEntity<>(nuevo, HttpStatus.CREATED);
+        facturaServicio.guardar(factura);
+        return new ResponseEntity<>(factura, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")

@@ -2,7 +2,7 @@ package com.proyecto.TFG.modelos;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name  = "Facturas", catalog = "tfg")
@@ -17,11 +17,13 @@ public class Factura {
     @Column(name = "Observaciones")
     private String observaciones;
     @Column(name = "Fecha")
-    private Date fecha;
+    private LocalDate fecha;
     @ManyToOne()
     @JoinColumn(name = "Usuarios_Id")
     private Usuario usuario;
-    private long direcciones_Id;
+    @ManyToOne()
+    @JoinColumn(name = "Direcciones_Id")
+    private Direccion direccion;
 
     public Factura(){
 
@@ -43,20 +45,12 @@ public class Factura {
         this.observaciones = observaciones;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
-    }
-
-    public long getDirecciones_Id() {
-        return direcciones_Id;
-    }
-
-    public void setDirecciones_Id(long direcciones_Id) {
-        this.direcciones_Id = direcciones_Id;
     }
 
     public Usuario getUsuario() {
@@ -65,5 +59,13 @@ public class Factura {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
     }
 }
