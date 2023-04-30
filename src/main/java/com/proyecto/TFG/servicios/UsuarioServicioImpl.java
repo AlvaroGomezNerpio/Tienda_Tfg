@@ -15,21 +15,25 @@ public class UsuarioServicioImpl implements IUsuarioServicio {
 
     @Override
     public List<Usuario> obtenerTodo() {
+
         return usuarioRepositorio.findAll();
     }
 
     @Override
     public Usuario guardar(Usuario usuario) {
+
         return usuarioRepositorio.save(usuario);
     }
 
     @Override
     public Usuario obtenerPorId(long id) {
+
         return usuarioRepositorio.findById(id).orElse(null);
     }
 
     @Override
     public void eliminar(long id) {
+
         usuarioRepositorio.deleteById(id);
     }
 }

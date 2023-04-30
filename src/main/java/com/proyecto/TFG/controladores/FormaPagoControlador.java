@@ -29,7 +29,7 @@ public class FormaPagoControlador {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<FormaPago> obtenerFormaPag(@PathVariable long id){
+    public ResponseEntity<FormaPago> obtenerFormaPago(@PathVariable long id){
         FormaPago formaPagoId = formaPagoServicio.obtenerPorId(id);
 
         return ResponseEntity.ok(formaPagoId);

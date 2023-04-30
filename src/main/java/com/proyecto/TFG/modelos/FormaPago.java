@@ -1,10 +1,12 @@
 package com.proyecto.TFG.modelos;
 
 import java.io.Serializable;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
-@Table(name  = "FormaPagos", catalog = "tfg")
+@Table(name  = "formaspagos", catalog = "tfg")
 public class FormaPago implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -15,6 +17,12 @@ public class FormaPago implements Serializable {
     private long id;
     @Column(name = "FormaPago")
     private String formaPago;
+
+    @OneToMany(mappedBy = "formaPago",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FormaPagoUsuario> formaPagoUsuarios;
+
+    @OneToMany(mappedBy = "formaPago",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Pedido> pedidos;
 
     public FormaPago() {
     }
@@ -33,5 +41,21 @@ public class FormaPago implements Serializable {
 
     public void setFormaPago(String formaPago) {
         this.formaPago = formaPago;
+    }
+
+    public List<FormaPagoUsuario> getFormaPagoUsuarios() {
+        return formaPagoUsuarios;
+    }
+
+    public void setFormaPagoUsuarios(List<FormaPagoUsuario> formaPagoUsuarios) {
+        this.formaPagoUsuarios = formaPagoUsuarios;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 }

@@ -23,6 +23,9 @@ public class Direccion {
     @OneToMany(mappedBy = "direccion",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Factura> factura;
 
+    @OneToMany(mappedBy = "direccion",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Pedido> pedidos;
+
     public Direccion(){
 
     }

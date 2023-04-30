@@ -31,7 +31,13 @@ public class Usuario implements Serializable {
     private List<Factura> facturas;
 
     @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Direccion> direccion;
+    private List<Direccion> direcciones;
+
+    @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FormaPagoUsuario> formasPagosUsuario;
+
+    @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Pedido> pedidos;
 
     public Usuario(){
 
@@ -91,5 +97,29 @@ public class Usuario implements Serializable {
 
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+
+    public List<Direccion> getDirecciones() {
+        return direcciones;
+    }
+
+    public void setDirecciones(List<Direccion> direcciones) {
+        this.direcciones = direcciones;
+    }
+
+    public List<FormaPagoUsuario> getFormasPagosUsuario() {
+        return formasPagosUsuario;
+    }
+
+    public void setFormasPagosUsuario(List<FormaPagoUsuario> formasPagosUsuario) {
+        this.formasPagosUsuario = formasPagosUsuario;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 }
