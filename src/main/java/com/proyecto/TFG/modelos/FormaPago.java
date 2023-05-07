@@ -9,14 +9,14 @@ import jakarta.persistence.*;
 @Table(name  = "formaspagos", catalog = "tfg")
 public class FormaPago implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -5759952554983127373L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", unique = true, nullable = true)
     private long id;
-    @Column(name = "FormaPago")
-    private String formaPago;
+    @Column(name = "Tipo")
+    private String tipo;
 
     @OneToMany(mappedBy = "formaPago",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<FormaPagoUsuario> formaPagoUsuarios;
@@ -35,12 +35,12 @@ public class FormaPago implements Serializable {
         this.id = id;
     }
 
-    public String getFormaPago() {
-        return formaPago;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setFormaPago(String formaPago) {
-        this.formaPago = formaPago;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public List<FormaPagoUsuario> getFormaPagoUsuarios() {

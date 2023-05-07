@@ -1,18 +1,16 @@
 package com.proyecto.TFG.servicios;
 
-
-
-import com.proyecto.TFG.modelos.Ejemplar;
+import com.proyecto.TFG.dtos.EjemplarDTO;
 
 import java.util.List;
 
 public interface IEjemplarServicio {
 
-    public List<Ejemplar> obtenerTodo();
+    public List<EjemplarDTO> obtenerTodo();
 
-    public Ejemplar guardar(Ejemplar ejemplar);
+    public EjemplarDTO guardar(EjemplarDTO ejemplar);
 
-    public Ejemplar obtenerPorId(long id);
+    public EjemplarDTO obtenerPorId(long id);
 
     public void eliminar(long id);
 

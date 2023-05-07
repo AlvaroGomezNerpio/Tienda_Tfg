@@ -2,12 +2,14 @@ package com.proyecto.TFG.modelos;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name  = "Categorias", catalog = "tfg")
-public class Categoria {
+public class Categoria implements Serializable {
 
+    private static final long serialVersionUID = 2274668925764867778L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", unique = true, nullable = true)

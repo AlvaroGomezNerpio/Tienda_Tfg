@@ -1,18 +1,16 @@
 package com.proyecto.TFG.servicios;
 
-
-
-import com.proyecto.TFG.modelos.Producto;
+import com.proyecto.TFG.dtos.ProductoDTO;
 
 import java.util.List;
 
 public interface IProductoServicio {
 
-    public List<Producto> obtenerTodo();
+    public List<ProductoDTO> obtenerTodo();
 
-    public Producto guardar(Producto producto);
+    public ProductoDTO guardar(ProductoDTO producto);
 
-    public Producto obtenerPorId(long id);
+    public ProductoDTO obtenerPorId(long id);
 
     public void eliminar(long id);
 

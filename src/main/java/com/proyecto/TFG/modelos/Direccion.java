@@ -2,20 +2,23 @@ package com.proyecto.TFG.modelos;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name  = "Direcciones", catalog = "tfg")
-public class Direccion {
+public class Direccion implements Serializable {
 
-    private static final long serialVersionUID = 1L;
 
+    private static final long serialVersionUID = 1262663811049400692L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", unique = true, nullable = true)
     private long Id;
-    public String ciudad;
-    public String direccion;
+    @Column(name = "Ciudad")
+    private String ciudad;
+    @Column(name = "Direccion")
+    private String direccion;
     @ManyToOne()
     @JoinColumn(name = "Usuarios_Id")
     private Usuario usuario;
@@ -68,5 +71,13 @@ public class Direccion {
 
     public void setFactura(List<Factura> factura) {
         this.factura = factura;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 }

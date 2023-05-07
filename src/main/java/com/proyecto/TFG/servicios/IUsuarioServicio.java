@@ -1,16 +1,17 @@
 package com.proyecto.TFG.servicios;
 
-import com.proyecto.TFG.modelos.Usuario;
+
+import com.proyecto.TFG.dtos.UsuarioDTO;
 
 import java.util.List;
 
 public interface IUsuarioServicio {
 
-    public List<Usuario> obtenerTodo();
+    public List<UsuarioDTO> obtenerTodo();
 
-    public Usuario guardar(Usuario usuario);
+    public UsuarioDTO guardar(UsuarioDTO usuario);
 
-    public Usuario obtenerPorId(long id);
+    public UsuarioDTO obtenerPorId(long id);
 
     public void eliminar(long id);
 

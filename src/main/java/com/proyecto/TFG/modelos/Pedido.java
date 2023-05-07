@@ -2,11 +2,15 @@ package com.proyecto.TFG.modelos;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name  = "Pedidos", catalog = "tfg")
-public class Pedido {
+public class Pedido implements Serializable {
+
+    private static final long serialVersionUID = 3508480517121411311L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +29,9 @@ public class Pedido {
     @ManyToOne()
     @JoinColumn(name = "FormasPagos_Id")
     private FormaPago formaPago;
+
+    @OneToMany(mappedBy = "pedido",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<LineaPedido> lineaPedidos;
 
     public Pedido(){
 
@@ -68,5 +75,13 @@ public class Pedido {
 
     public void setFormaPago(FormaPago formaPago) {
         this.formaPago = formaPago;
+    }
+
+    public List<LineaPedido> getLineaPedidos() {
+        return lineaPedidos;
+    }
+
+    public void setLineaPedidos(List<LineaPedido> lineaPedidos) {
+        this.lineaPedidos = lineaPedidos;
     }
 }

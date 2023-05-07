@@ -1,29 +1,19 @@
-package com.proyecto.TFG.modelos;
+package com.proyecto.TFG.dtos;
 
+import com.proyecto.TFG.modelos.Producto;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Entity
-@Table(name  = "Marcas", catalog = "tfg")
-public class Marca implements Serializable {
+public class MarcaDTO {
 
-    private static final long serialVersionUID = -921703714156363055L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id", unique = true, nullable = true)
     private long id;
-    @Column(name = "Nombre")
     private String nombre;
-    @Column(name = "Descripcion")
     private String descripcion;
+    private List<ProductoDTO> productos;
 
-    @OneToMany(mappedBy = "marca",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Producto> productos;
-
-    public Marca(){
+    public MarcaDTO(){
 
     }
 
@@ -51,11 +41,11 @@ public class Marca implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public List<Producto> getProductos() {
+    public List<ProductoDTO> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<Producto> productos) {
+    public void setProductos(List<ProductoDTO> productos) {
         this.productos = productos;
     }
 }

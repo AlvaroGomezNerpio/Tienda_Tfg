@@ -1,16 +1,16 @@
 package com.proyecto.TFG.servicios;
 
-import com.proyecto.TFG.modelos.Factura;
+import com.proyecto.TFG.dtos.FacturaDTO;
 
 import java.util.List;
 
 public interface IFacturaServicio {
 
-    public List<Factura> obtenerTodo();
+    public List<FacturaDTO> obtenerTodo();
 
-    public Factura guardar(Factura factura);
+    public FacturaDTO guardar(FacturaDTO factura);
 
-    public Factura obtenerPorId(long id);
+    public FacturaDTO obtenerPorId(long id);
 
     public void eliminar(long id);
 

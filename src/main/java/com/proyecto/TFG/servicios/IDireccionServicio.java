@@ -1,17 +1,16 @@
 package com.proyecto.TFG.servicios;
 
-
-import com.proyecto.TFG.modelos.Direccion;
+import com.proyecto.TFG.dtos.DireccionDTO;
 
 import java.util.List;
 
 public interface IDireccionServicio {
 
-    public List<Direccion> obtenerTodo();
+    public List<DireccionDTO> obtenerTodo();
 
-    public Direccion guardar(Direccion direccion);
+    public DireccionDTO guardar(DireccionDTO direccion);
 
-    public Direccion obtenerPorId(long id);
+    public DireccionDTO obtenerPorId(long id);
 
     public void eliminar(long id);
 

@@ -1,18 +1,16 @@
 package com.proyecto.TFG.servicios;
 
-
-
-import com.proyecto.TFG.modelos.Pedido;
+import com.proyecto.TFG.dtos.PedidoDTO;
 
 import java.util.List;
 
 public interface IPedidoServicio {
 
-    public List<Pedido> obtenerTodo();
+    public List<PedidoDTO> obtenerTodo();
 
-    public Pedido guardar(Pedido pedido);
+    public PedidoDTO guardar(PedidoDTO pedido);
 
-    public Pedido obtenerPorId(long id);
+    public PedidoDTO obtenerPorId(long id);
 
     public void eliminar(long id);
 

@@ -2,13 +2,14 @@ package com.proyecto.TFG.modelos;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name  = "Productos", catalog = "tfg")
-public class Producto {
+public class Producto implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -2397774858653723668L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +22,14 @@ public class Producto {
     @Column(name = "IVA")
     private double iva;
 
+    public List<LineaPedido> getLineaPedidos() {
+        return lineaPedidos;
+    }
+
+    public void setLineaPedidos(List<LineaPedido> lineaPedidos) {
+        this.lineaPedidos = lineaPedidos;
+    }
+
     @ManyToOne()
     @JoinColumn(name = "Marcas_Id")
     private Marca marca;
@@ -31,6 +40,12 @@ public class Producto {
 
     @OneToMany(mappedBy = "producto",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ejemplar> ejemplares;
+
+    @OneToMany(mappedBy = "producto",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<LineaFactura> lineaFacturas;
+
+    @OneToMany(mappedBy = "producto",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<LineaPedido> lineaPedidos;
 
     public Producto(){
 
@@ -90,5 +105,13 @@ public class Producto {
 
     public void setEjemplares(List<Ejemplar> ejemplares) {
         this.ejemplares = ejemplares;
+    }
+
+    public List<LineaFactura> getLineaFacturas() {
+        return lineaFacturas;
+    }
+
+    public void setLineaFacturas(List<LineaFactura> lineaFacturas) {
+        this.lineaFacturas = lineaFacturas;
     }
 }

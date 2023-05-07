@@ -1,16 +1,16 @@
 package com.proyecto.TFG.servicios;
 
-import com.proyecto.TFG.modelos.FormaPagoUsuario;
+import com.proyecto.TFG.dtos.FormaPagoUsuarioDTO;
 
 import java.util.List;
 
 public interface IFormaPagoUsuarioServicio {
 
-    public List<FormaPagoUsuario> obtenerTodo();
+    public List<FormaPagoUsuarioDTO> obtenerTodo();
 
-    public FormaPagoUsuario guardar(FormaPagoUsuario formaPagoUsuario);
+    public FormaPagoUsuarioDTO guardar(FormaPagoUsuarioDTO formaPagoUsuario);
 
-    public FormaPagoUsuario obtenerPorId(long id);
+    public FormaPagoUsuarioDTO obtenerPorId(long id);
 
     public void eliminar(long id);
 

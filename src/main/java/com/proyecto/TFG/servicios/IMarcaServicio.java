@@ -1,16 +1,16 @@
 package com.proyecto.TFG.servicios;
 
-import com.proyecto.TFG.modelos.Marca;
+import com.proyecto.TFG.dtos.MarcaDTO;
 
 import java.util.List;
 
 public interface IMarcaServicio {
 
-    public List<Marca> obtenerTodo();
+    public List<MarcaDTO> obtenerTodo();
 
-    public Marca guardar(Marca marca);
+    public MarcaDTO guardar(MarcaDTO marca);
 
-    public Marca obtenerPorId(long id);
+    public MarcaDTO obtenerPorId(long id);
 
     public void eliminar(long id);
 

@@ -1,16 +1,16 @@
 package com.proyecto.TFG.servicios;
 
-import com.proyecto.TFG.modelos.Categoria;
+import com.proyecto.TFG.dtos.CategoriaDTO;
 
 import java.util.List;
 
 public interface ICategoriaServicio {
 
-    public List<Categoria> obtenerTodo();
+    public List<CategoriaDTO> obtenerTodo();
 
-    public Categoria guardar(Categoria categoria);
+    public CategoriaDTO guardar(CategoriaDTO categoria);
 
-    public Categoria obtenerPorId(long id);
+    public CategoriaDTO obtenerPorId(long id);
 
     public void eliminar(long id);
 

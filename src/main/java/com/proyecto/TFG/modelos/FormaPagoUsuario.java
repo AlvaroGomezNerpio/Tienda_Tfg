@@ -2,11 +2,13 @@ package com.proyecto.TFG.modelos;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name  = "FormasPagosUsuarios", catalog = "tfg")
-public class FormaPagoUsuario {
+public class FormaPagoUsuario implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 4104961599731493478L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

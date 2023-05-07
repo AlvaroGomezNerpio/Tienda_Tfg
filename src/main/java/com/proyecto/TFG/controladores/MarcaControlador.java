@@ -38,7 +38,7 @@ public class MarcaControlador {
     //implementar update
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<HashMap<String, Boolean>> eliminarRol(@PathVariable long id){
+    public ResponseEntity<HashMap<String, Boolean>> eliminarMarca(@PathVariable long id){
         this.marcaServicio.eliminar(id);
 
         HashMap<String, Boolean> estadoMarcaEliminado = new HashMap<>();
