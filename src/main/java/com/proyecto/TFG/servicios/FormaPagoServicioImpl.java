@@ -36,7 +36,7 @@ public class FormaPagoServicioImpl implements IFormaPagoServicio{
 
         FormaPago formaPagoEnti = ModelMapperUtil.transformDto(formaPago, FormaPago.class);
 
-        return ModelMapperUtil.transformDto(formaPagoRepositorio.save(formaPagoEnti), FormaPagoDTO.class)
+        return ModelMapperUtil.transformDto(formaPagoRepositorio.save(formaPagoEnti), FormaPagoDTO.class);
 
     }
 
