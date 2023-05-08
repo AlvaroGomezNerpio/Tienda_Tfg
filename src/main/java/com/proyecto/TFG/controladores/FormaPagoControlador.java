@@ -1,5 +1,6 @@
 package com.proyecto.TFG.controladores;
 
+import com.proyecto.TFG.dtos.FormaPagoDTO;
 import com.proyecto.TFG.modelos.FormaPago;
 import com.proyecto.TFG.servicios.FormaPagoServicioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,25 +19,25 @@ public class FormaPagoControlador {
     FormaPagoServicioImpl formaPagoServicio;
 
     @GetMapping("/listar")
-    public List<FormaPago> obtenerFormasPagos(){
+    public List<FormaPagoDTO> obtenerFormasPagos(){
         return formaPagoServicio.obtenerTodo();
     }
 
     @PostMapping("/guardar")
-    public ResponseEntity<FormaPago> guardarFormaPago(@RequestBody FormaPago formaPago){
+    public ResponseEntity<FormaPagoDTO> guardarFormaPago(@RequestBody FormaPagoDTO formaPago){
         formaPagoServicio.guardar(formaPago);
         return  new ResponseEntity<>(formaPago, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<FormaPago> obtenerFormaPago(@PathVariable long id){
-        FormaPago formaPagoId = formaPagoServicio.obtenerPorId(id);
+    public ResponseEntity<FormaPagoDTO> obtenerFormaPago(@PathVariable long id){
+        FormaPagoDTO formaPagoId = formaPagoServicio.obtenerPorId(id);
 
         return ResponseEntity.ok(formaPagoId);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<FormaPago> actualizarFormaPago(@PathVariable long id, @RequestBody FormaPago formaPago){
+    public ResponseEntity<FormaPagoDTO> actualizarFormaPago(@PathVariable long id, @RequestBody FormaPagoDTO formaPago){
         formaPagoServicio.guardar(formaPago);
         return new ResponseEntity<>(formaPago, HttpStatus.CREATED);
     }

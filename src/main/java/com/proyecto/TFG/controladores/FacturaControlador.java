@@ -1,5 +1,6 @@
 package com.proyecto.TFG.controladores;
 
+import com.proyecto.TFG.dtos.FacturaDTO;
 import com.proyecto.TFG.modelos.Factura;
 import com.proyecto.TFG.servicios.FacturaServicioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,27 +19,27 @@ public class FacturaControlador {
     FacturaServicioImpl facturaServicio;
 
     @GetMapping("/listar")
-    public List<Factura> obtenerFacturas(){
+    public List<FacturaDTO> obtenerFacturas(){
         return facturaServicio.obtenerTodo();
     }
 
     @PostMapping("/guardar")
-    public ResponseEntity<Factura> guardarFactura(@RequestBody Factura factura){
+    public ResponseEntity<FacturaDTO> guardarFactura(@RequestBody FacturaDTO factura){
         facturaServicio.guardar(factura);
         return new ResponseEntity<>(factura, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Factura> obtenerFactura(@PathVariable long id){
-        Factura facturaId = facturaServicio.obtenerPorId(id);
+    public ResponseEntity<FacturaDTO> obtenerFactura(@PathVariable long id){
+        FacturaDTO facturaId = facturaServicio.obtenerPorId(id);
 
         return ResponseEntity.ok(facturaId);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Factura> actualizarFactura(@PathVariable long id, @RequestBody Factura factura){
+    public ResponseEntity<FacturaDTO> actualizarFactura(@PathVariable long id, @RequestBody FacturaDTO factura){
 
-        Factura facturaAtc = facturaServicio.guardar(factura);
+        FacturaDTO facturaAtc = facturaServicio.guardar(factura);
         return new ResponseEntity<>(facturaAtc, HttpStatus.CREATED);
     }
 

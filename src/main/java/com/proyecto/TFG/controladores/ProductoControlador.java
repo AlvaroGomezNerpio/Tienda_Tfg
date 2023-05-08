@@ -1,5 +1,6 @@
 package com.proyecto.TFG.controladores;
 
+import com.proyecto.TFG.dtos.ProductoDTO;
 import com.proyecto.TFG.modelos.Producto;
 import com.proyecto.TFG.servicios.ProductoServicioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,19 +19,19 @@ public class ProductoControlador {
     ProductoServicioImpl productoServicio;
 
     @GetMapping("/listar")
-    public List<Producto> obtenerProductos(){
+    public List<ProductoDTO> obtenerProductos(){
         return productoServicio.obtenerTodo();
     }
 
     @PostMapping("/guardar")
-    public ResponseEntity<Producto> guardarProducto(@RequestBody Producto producto){
+    public ResponseEntity<ProductoDTO> guardarProducto(@RequestBody ProductoDTO producto){
         productoServicio.guardar(producto);
         return new ResponseEntity<>(producto, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Producto> obtenerProducto(@PathVariable long id){
-        Producto productoId = productoServicio.obtenerPorId(id);
+    public ResponseEntity<ProductoDTO> obtenerProducto(@PathVariable long id){
+        ProductoDTO productoId = productoServicio.obtenerPorId(id);
         return ResponseEntity.ok(productoId);
     }
 

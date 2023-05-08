@@ -1,6 +1,7 @@
 package com.proyecto.TFG.controladores;
 
 
+import com.proyecto.TFG.dtos.EjemplarDTO;
 import com.proyecto.TFG.modelos.Ejemplar;
 import com.proyecto.TFG.servicios.EjemplarServicioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +20,19 @@ public class EjemplarControlador {
     EjemplarServicioImpl ejemplarServicio;
 
     @GetMapping("listar")
-    public List<Ejemplar> obtenerEjemplares(){
+    public List<EjemplarDTO> obtenerEjemplares(){
         return ejemplarServicio.obtenerTodo();
     }
 
     @PostMapping("/guardar")
-    public ResponseEntity<Ejemplar> guardarEjemplar(@RequestBody Ejemplar ejemplar){
+    public ResponseEntity<EjemplarDTO> guardarEjemplar(@RequestBody EjemplarDTO ejemplar){
         ejemplarServicio.guardar(ejemplar);
         return new ResponseEntity<>(ejemplar, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Ejemplar> obtenerEjemplar(@PathVariable long id){
-        Ejemplar ejemplarId = ejemplarServicio.obtenerPorId(id);
+    public ResponseEntity<EjemplarDTO> obtenerEjemplar(@PathVariable long id){
+        EjemplarDTO ejemplarId = ejemplarServicio.obtenerPorId(id);
 
         return ResponseEntity.ok(ejemplarId);
     }

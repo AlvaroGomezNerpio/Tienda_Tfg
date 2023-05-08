@@ -1,6 +1,7 @@
 package com.proyecto.TFG.controladores;
 
 
+import com.proyecto.TFG.dtos.LineaFacturaDTO;
 import com.proyecto.TFG.modelos.LineaFactura;
 import com.proyecto.TFG.servicios.LineaFacturaServicioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +20,19 @@ public class LineaFacturaControlador {
     private LineaFacturaServicioImpl lineaFacturaService;
 
     @GetMapping("listar")
-    public List<LineaFactura> obtenerLineasFactura(){
+    public List<LineaFacturaDTO> obtenerLineasFactura(){
         return lineaFacturaService.obtenerTodo();
     }
 
     @PostMapping("/guardar")
-    public ResponseEntity<LineaFactura> guardarLineaFactura(@RequestBody LineaFactura lineaFactura){
+    public ResponseEntity<LineaFacturaDTO> guardarLineaFactura(@RequestBody LineaFacturaDTO lineaFactura){
         lineaFacturaService.guardar(lineaFactura);
         return new ResponseEntity<>(lineaFactura, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<LineaFactura> obtenerlineaFactura(@PathVariable long id){
-        LineaFactura lineaFacturaId = lineaFacturaService.obtenerPorId(id);
+    public ResponseEntity<LineaFacturaDTO> obtenerlineaFactura(@PathVariable long id){
+        LineaFacturaDTO lineaFacturaId = lineaFacturaService.obtenerPorId(id);
 
         return ResponseEntity.ok(lineaFacturaId);
     }

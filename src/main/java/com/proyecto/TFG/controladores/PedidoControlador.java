@@ -1,5 +1,6 @@
 package com.proyecto.TFG.controladores;
 
+import com.proyecto.TFG.dtos.PedidoDTO;
 import com.proyecto.TFG.modelos.Pedido;
 import com.proyecto.TFG.servicios.PedidoServicioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,19 +19,19 @@ public class PedidoControlador {
     PedidoServicioImpl pedidoServicio;
 
     @GetMapping("/listar")
-    public List<Pedido> obtenerPedidos(){
+    public List<PedidoDTO> obtenerPedidos(){
         return pedidoServicio.obtenerTodo();
     }
 
     @PostMapping("/guardar")
-    public ResponseEntity<Pedido> guardarPedido(@RequestBody Pedido pedido){
+    public ResponseEntity<PedidoDTO> guardarPedido(@RequestBody PedidoDTO pedido){
         pedidoServicio.guardar(pedido);
         return new ResponseEntity<>(pedido, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pedido> obtenerPedido(@PathVariable long id){
-        Pedido pedidoId = pedidoServicio.obtenerPorId(id);
+    public ResponseEntity<PedidoDTO> obtenerPedido(@PathVariable long id){
+        PedidoDTO pedidoId = pedidoServicio.obtenerPorId(id);
         return ResponseEntity.ok(pedidoId);
     }
 

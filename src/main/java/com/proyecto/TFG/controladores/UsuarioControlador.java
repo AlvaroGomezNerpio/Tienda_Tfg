@@ -1,5 +1,6 @@
 package com.proyecto.TFG.controladores;
 
+import com.proyecto.TFG.dtos.UsuarioDTO;
 import com.proyecto.TFG.modelos.Usuario;
 import com.proyecto.TFG.servicios.UsuarioServicioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,24 +19,24 @@ public class UsuarioControlador {
     UsuarioServicioImpl usuarioServicio;
 
     @GetMapping("/listar")
-    public List<Usuario> obtenerUsuarios(){
+    public List<UsuarioDTO> obtenerUsuarios(){
         return usuarioServicio.obtenerTodo();
     }
 
     @PostMapping("/guardar")
-    public ResponseEntity<Usuario> guardarUsuario(@RequestBody Usuario usuario){
+    public ResponseEntity<UsuarioDTO> guardarUsuario(@RequestBody UsuarioDTO usuario){
         usuarioServicio.guardar(usuario);
         return new ResponseEntity<>(usuario, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> obtenerUsuario(@PathVariable long id){
-        Usuario clienteId = usuarioServicio.obtenerPorId(id);
+    public ResponseEntity<UsuarioDTO> obtenerUsuario(@PathVariable long id){
+        UsuarioDTO clienteId = usuarioServicio.obtenerPorId(id);
         return ResponseEntity.ok(clienteId);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Usuario> actualizarUsuario(@PathVariable long id, @RequestBody Usuario usuario){
+    public ResponseEntity<UsuarioDTO> actualizarUsuario(@PathVariable long id, @RequestBody UsuarioDTO usuario){
         usuarioServicio.guardar(usuario);
         return new ResponseEntity<>(usuario, HttpStatus.CREATED);
     }

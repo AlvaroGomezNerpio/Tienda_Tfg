@@ -1,5 +1,6 @@
 package com.proyecto.TFG.controladores;
 
+import com.proyecto.TFG.dtos.CategoriaDTO;
 import com.proyecto.TFG.modelos.Categoria;
 import com.proyecto.TFG.servicios.CategoriaServicioImpl;
 import com.proyecto.TFG.servicios.MarcaServicioImpl;
@@ -19,19 +20,19 @@ public class CategoriaControlador {
     CategoriaServicioImpl categoriaServicio;
 
     @GetMapping("listar")
-    public List<Categoria> obtenerCategorias(){
+    public List<CategoriaDTO> obtenerCategorias(){
         return categoriaServicio.obtenerTodo();
     }
 
     @PostMapping("/guardar")
-    public ResponseEntity<Categoria> guardarCategoria(@RequestBody Categoria categoria){
+    public ResponseEntity<CategoriaDTO> guardarCategoria(@RequestBody CategoriaDTO categoria){
         categoriaServicio.guardar(categoria);
         return new ResponseEntity<>(categoria, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Categoria> obtenerCategoria(@PathVariable long id){
-        Categoria categoriaId = categoriaServicio.obtenerPorId(id);
+    public ResponseEntity<CategoriaDTO> obtenerCategoria(@PathVariable long id){
+        CategoriaDTO categoriaId = categoriaServicio.obtenerPorId(id);
 
         return ResponseEntity.ok(categoriaId);
     }

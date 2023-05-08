@@ -1,5 +1,6 @@
 package com.proyecto.TFG.controladores;
 
+import com.proyecto.TFG.dtos.MarcaDTO;
 import com.proyecto.TFG.modelos.Marca;
 import com.proyecto.TFG.servicios.MarcaServicioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,19 +19,19 @@ public class MarcaControlador {
     MarcaServicioImpl marcaServicio;
 
     @GetMapping("listar")
-    public List<Marca> obtenerMarcas(){
+    public List<MarcaDTO> obtenerMarcas(){
         return marcaServicio.obtenerTodo();
     }
 
     @PostMapping("/guardar")
-    public ResponseEntity<Marca> guardarMarca(@RequestBody Marca marca){
+    public ResponseEntity<MarcaDTO> guardarMarca(@RequestBody MarcaDTO marca){
         marcaServicio.guardar(marca);
         return new ResponseEntity<>(marca, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Marca> obtenerMarca(@PathVariable long id){
-        Marca marcaId = marcaServicio.obtenerPorId(id);
+    public ResponseEntity<MarcaDTO> obtenerMarca(@PathVariable long id){
+        MarcaDTO marcaId = marcaServicio.obtenerPorId(id);
 
         return ResponseEntity.ok(marcaId);
     }

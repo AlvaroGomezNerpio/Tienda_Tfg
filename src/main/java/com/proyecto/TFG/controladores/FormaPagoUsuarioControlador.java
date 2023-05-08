@@ -1,5 +1,6 @@
 package com.proyecto.TFG.controladores;
 
+import com.proyecto.TFG.dtos.FormaPagoUsuarioDTO;
 import com.proyecto.TFG.modelos.FormaPagoUsuario;
 import com.proyecto.TFG.servicios.FormaPagoUsuarioServicioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,19 +19,19 @@ public class FormaPagoUsuarioControlador {
     FormaPagoUsuarioServicioImpl formaPagoUsuarioServicio;
 
     @GetMapping("/listar")
-    public List<FormaPagoUsuario> obtenerFormasPagosUsuario(){
+    public List<FormaPagoUsuarioDTO> obtenerFormasPagosUsuario(){
         return formaPagoUsuarioServicio.obtenerTodo();
     }
 
     @PostMapping("/guardar")
-    public ResponseEntity<FormaPagoUsuario> guardarFormaPagoUsuario(@RequestBody FormaPagoUsuario formaPagoUsuario){
+    public ResponseEntity<FormaPagoUsuarioDTO> guardarFormaPagoUsuario(@RequestBody FormaPagoUsuarioDTO formaPagoUsuario){
         formaPagoUsuarioServicio.guardar(formaPagoUsuario);
         return new ResponseEntity<>(formaPagoUsuario, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<FormaPagoUsuario> obtenerFormaPagoUsuario(@PathVariable long id){
-        FormaPagoUsuario formaPagoUsuarioId = formaPagoUsuarioServicio.obtenerPorId(id);
+    public ResponseEntity<FormaPagoUsuarioDTO> obtenerFormaPagoUsuario(@PathVariable long id){
+        FormaPagoUsuarioDTO formaPagoUsuarioId = formaPagoUsuarioServicio.obtenerPorId(id);
         return  ResponseEntity.ok(formaPagoUsuarioId);
     }
 

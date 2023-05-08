@@ -1,5 +1,6 @@
 package com.proyecto.TFG.controladores;
 
+import com.proyecto.TFG.dtos.DireccionDTO;
 import com.proyecto.TFG.modelos.Direccion;
 import com.proyecto.TFG.modelos.Rol;
 import com.proyecto.TFG.modelos.Usuario;
@@ -20,30 +21,30 @@ public class DireccionControlador {
     DireccionServicioImpl direccionServicio;
 
     @GetMapping("/listar")
-    public List<Direccion> obtenerDirecciones(){
+    public List<DireccionDTO> obtenerDirecciones(){
         return direccionServicio.obtenerTodo();
     }
 
     @PostMapping("/guardar")
-    public ResponseEntity<Direccion> guardarDireccion(@RequestBody Direccion direccion){
+    public ResponseEntity<DireccionDTO> guardarDireccion(@RequestBody DireccionDTO direccion){
         direccionServicio.guardar(direccion);
         return new ResponseEntity<>(direccion, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Direccion> obtenerDireccion(@PathVariable long id){
-        Direccion direccionId = direccionServicio.obtenerPorId(id);
+    public ResponseEntity<DireccionDTO> obtenerDireccion(@PathVariable long id){
+        DireccionDTO direccionId = direccionServicio.obtenerPorId(id);
 
         return ResponseEntity.ok(direccionId);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Direccion> actualizarDireccion(@PathVariable long id, @RequestBody Direccion direccion){
-        Direccion direccionId = direccionServicio.obtenerPorId(id);
+    public ResponseEntity<DireccionDTO> actualizarDireccion(@PathVariable long id, @RequestBody Direccion direccion){
+        DireccionDTO direccionId = direccionServicio.obtenerPorId(id);
         direccionId.setCiudad(direccion.getCiudad());
         direccionId.setDireccion(direccion.getDireccion());
 
-        Direccion direccionAct = direccionServicio.guardar(direccionId);
+        DireccionDTO direccionAct = direccionServicio.guardar(direccionId);
         return new ResponseEntity<>(direccionAct, HttpStatus.CREATED);
     }
 
