@@ -16,7 +16,6 @@ public class PedidoDTO {
     private UsuarioDTO usuario;
     private DireccionDTO direccion;
     private FormaPagoDTO formaPago;
-    private List<LineaPedidoDTO> lineaPedidos;
 
     public PedidoDTO(){
 
@@ -62,11 +61,4 @@ public class PedidoDTO {
         this.formaPago = formaPago;
     }
 
-    public List<LineaPedidoDTO> getLineaPedidos() {
-        return lineaPedidos;
-    }
-
-    public void setLineaPedidos(List<LineaPedidoDTO> lineaPedidos) {
-        this.lineaPedidos = lineaPedidos;
-    }
 }

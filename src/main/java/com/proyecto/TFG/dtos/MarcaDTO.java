@@ -11,7 +11,6 @@ public class MarcaDTO {
     private long id;
     private String nombre;
     private String descripcion;
-    private List<ProductoDTO> productos;
 
     public MarcaDTO(){
 
@@ -41,11 +40,4 @@ public class MarcaDTO {
         this.descripcion = descripcion;
     }
 
-    public List<ProductoDTO> getProductos() {
-        return productos;
-    }
-
-    public void setProductos(List<ProductoDTO> productos) {
-        this.productos = productos;
-    }
 }

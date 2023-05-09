@@ -11,8 +11,6 @@ public class DireccionDTO {
     private String ciudad;
     private String direccion;
     private Usuario usuario;
-    private List<FacturaDTO> factura;
-    private List<PedidoDTO> pedidos;
 
     public DireccionDTO(){
 
@@ -50,19 +48,4 @@ public class DireccionDTO {
         this.usuario = usuario;
     }
 
-    public List<FacturaDTO> getFactura() {
-        return factura;
-    }
-
-    public void setFactura(List<FacturaDTO> factura) {
-        this.factura = factura;
-    }
-
-    public List<PedidoDTO> getPedidos() {
-        return pedidos;
-    }
-
-    public void setPedidos(List<PedidoDTO> pedidos) {
-        this.pedidos = pedidos;
-    }
 }

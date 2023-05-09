@@ -18,10 +18,6 @@ public class UsuarioDTO{
     private String telefono;
     private String contraseña;
     private RolDTO rol;
-    private List<FacturaDTO> facturas;
-    private List<DireccionDTO> direcciones;
-    private List<FormaPagoUsuarioDTO> formasPagosUsuario;
-    private List<PedidoDTO> pedidos;
 
     public UsuarioDTO(){
 
@@ -75,35 +71,4 @@ public class UsuarioDTO{
         this.rol = rol;
     }
 
-    public List<FacturaDTO> getFacturas() {
-        return facturas;
-    }
-
-    public void setFacturas(List<FacturaDTO> facturas) {
-        this.facturas = facturas;
-    }
-
-    public List<DireccionDTO> getDirecciones() {
-        return direcciones;
-    }
-
-    public void setDirecciones(List<DireccionDTO> direcciones) {
-        this.direcciones = direcciones;
-    }
-
-    public List<FormaPagoUsuarioDTO> getFormasPagosUsuario() {
-        return formasPagosUsuario;
-    }
-
-    public void setFormasPagosUsuario(List<FormaPagoUsuarioDTO> formasPagosUsuario) {
-        this.formasPagosUsuario = formasPagosUsuario;
-    }
-
-    public List<PedidoDTO> getPedidos() {
-        return pedidos;
-    }
-
-    public void setPedidos(List<PedidoDTO> pedidos) {
-        this.pedidos = pedidos;
-    }
 }

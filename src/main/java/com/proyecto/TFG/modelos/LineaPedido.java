@@ -27,7 +27,7 @@ public class LineaPedido implements Serializable {
     @JoinColumn(name = "Facturas_id")
     private Factura factura;
     @ManyToOne()
-    @JoinColumn(name = "Facturas_id")
+    @JoinColumn(name = "Pedidos_id")
     private Pedido pedido;
 
     public LineaPedido(){

@@ -9,7 +9,6 @@ public class CategoriaDTO {
     private long id;
     private String nombre;
     private String descripcion;
-    private List<ProductoDTO> productos;
 
     public CategoriaDTO(){
 
@@ -39,11 +38,4 @@ public class CategoriaDTO {
         this.descripcion = descripcion;
     }
 
-    public List<ProductoDTO> getProductos() {
-        return productos;
-    }
-
-    public void setProductos(List<ProductoDTO> productos) {
-        this.productos = productos;
-    }
 }

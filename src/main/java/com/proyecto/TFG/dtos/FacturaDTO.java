@@ -17,8 +17,6 @@ public class FacturaDTO{
     private LocalDate fecha;
     private UsuarioDTO usuario;
     private DireccionDTO direccion;
-    private List<LineaFacturaDTO> lineaFacturas;
-    private List<LineaPedidoDTO> lineaPedidos;
 
     public FacturaDTO(){
 
@@ -64,19 +62,4 @@ public class FacturaDTO{
         this.direccion = direccion;
     }
 
-    public List<LineaFacturaDTO> getLineaFacturas() {
-        return lineaFacturas;
-    }
-
-    public void setLineaFacturas(List<LineaFacturaDTO> lineaFacturas) {
-        this.lineaFacturas = lineaFacturas;
-    }
-
-    public List<LineaPedidoDTO> getLineaPedidos() {
-        return lineaPedidos;
-    }
-
-    public void setLineaPedidos(List<LineaPedidoDTO> lineaPedidos) {
-        this.lineaPedidos = lineaPedidos;
-    }
 }

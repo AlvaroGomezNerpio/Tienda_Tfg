@@ -11,7 +11,7 @@ public class RolDTO {
 
     private long id;
     private String rol;
-    private List<UsuarioDTO> usuarios;
+    //private List<UsuarioDTO> usuarios;
 
     public RolDTO() {
 
@@ -33,11 +33,5 @@ public class RolDTO {
         this.rol = rol;
     }
 
-    public List<UsuarioDTO> getUsuarios() {
-        return usuarios;
-    }
 
-    public void setUsuarios(List<UsuarioDTO> usuarios) {
-        this.usuarios = usuarios;
-    }
 }

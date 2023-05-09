@@ -18,9 +18,6 @@ public class ProductoDTO{
     private double iva;
     private MarcaDTO marca;
     private CategoriaDTO categoria;
-    private List<EjemplarDTO> ejemplares;
-    private List<LineaFacturaDTO> lineaFacturas;
-    private List<LineaPedidoDTO> lineaPedidos;
 
     public ProductoDTO(){
 
@@ -74,27 +71,4 @@ public class ProductoDTO{
         this.categoria = categoria;
     }
 
-    public List<EjemplarDTO> getEjemplares() {
-        return ejemplares;
-    }
-
-    public void setEjemplares(List<EjemplarDTO> ejemplares) {
-        this.ejemplares = ejemplares;
-    }
-
-    public List<LineaFacturaDTO> getLineaFacturas() {
-        return lineaFacturas;
-    }
-
-    public void setLineaFacturas(List<LineaFacturaDTO> lineaFacturas) {
-        this.lineaFacturas = lineaFacturas;
-    }
-
-    public List<LineaPedidoDTO> getLineaPedidos() {
-        return lineaPedidos;
-    }
-
-    public void setLineaPedidos(List<LineaPedidoDTO> lineaPedidos) {
-        this.lineaPedidos = lineaPedidos;
-    }
 }

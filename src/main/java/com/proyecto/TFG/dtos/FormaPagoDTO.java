@@ -12,7 +12,6 @@ public class FormaPagoDTO {
     private long id;
     private String tipo;
     private List<FormaPagoUsuarioDTO> formaPagoUsuarios;
-    private List<PedidoDTO> pedidos;
 
     public FormaPagoDTO() {
     }
@@ -41,11 +40,4 @@ public class FormaPagoDTO {
         this.formaPagoUsuarios = formaPagoUsuarios;
     }
 
-    public List<PedidoDTO> getPedidos() {
-        return pedidos;
-    }
-
-    public void setPedidos(List<PedidoDTO> pedidos) {
-        this.pedidos = pedidos;
-    }
 }
