@@ -9,6 +9,8 @@ import java.util.Collections;
 
 public class UserDetailsImpl  implements UserDetails {
 
+
+    private static final long serialVersionUID = 147486517642600438L;
     private final Usuario usuario;
 
     public UserDetailsImpl(Usuario usuario) {

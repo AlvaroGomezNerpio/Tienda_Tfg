@@ -1,14 +1,17 @@
 package com.proyecto.TFG.security;
 
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
-import java.security.Key;
-import java.util.*;
 
 public class TokenUttils {
 
@@ -17,7 +20,7 @@ public class TokenUttils {
 
     public static  String createToken(String nombre, String email) {
         long expirationTime = ACCESS_TOKEN_VALIDITY_SECONDS * 1_000;
-        Date expirationDate = new Date(System.currentTimeMillis() + expirationTime);
+        Date expirationDate = new Date(System.currentTimeMillis()+expirationTime);
 
         Map<String, Object> extra = new HashMap<>();
         extra.put("nombre", nombre);
@@ -31,8 +34,9 @@ public class TokenUttils {
 
     }
 
-    public static UsernamePasswordAuthenticationToken getAuthentication(String token){
+    public static UsernamePasswordAuthenticationToken getAuthentication (String token) {
         try {
+
             Claims claims = Jwts.parserBuilder()
                     .setSigningKey(ACCESS_TOKEN_SECRET.getBytes())
                     .build()
@@ -41,8 +45,8 @@ public class TokenUttils {
 
             String email = claims.getSubject();
 
-            return new UsernamePasswordAuthenticationToken(email, null, Collections.emptyList());
-        } catch (JwtException e) {
+            return new UsernamePasswordAuthenticationToken(email,null,Collections.emptyList());
+        }catch(JwtException e) {
             return null;
         }
     }

@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserDataServiceImpl implements UserDetailsService {
+public class UserDetailServiceImpl implements UserDetailsService {
 
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
@@ -18,7 +18,7 @@ public class UserDataServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Usuario usuario = usuarioRepositorio
-                .findOneEmail(email)
+                .findOneByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("El usuario con email " + email + " no existe"));
 
         return new UserDetailsImpl(usuario);
