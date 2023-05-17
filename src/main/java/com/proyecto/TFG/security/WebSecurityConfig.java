@@ -35,8 +35,6 @@ public class WebSecurityConfig {
                 .anyRequest()
                 .authenticated()
                 .and()
-                .httpBasic()
-                .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
@@ -59,10 +57,9 @@ public class WebSecurityConfig {
 
     @Bean
     PasswordEncoder passwordEncoder() {
-        return  new BCryptPasswordEncoder();
+        return  new BCryptPasswordEncoder(8);
     }
 
 
-
-
 }
+
