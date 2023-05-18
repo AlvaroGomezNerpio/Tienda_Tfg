@@ -60,6 +60,23 @@ public class UsuarioServicioImpl implements IUsuarioServicio {
 
     }
 
+    public UsuarioDTO findByEmail(String email){
+
+        Optional<Usuario> usuario = usuarioRepositorio.findByEmail(email);
+        UsuarioDTO usuarioDTO = new UsuarioDTO();
+
+        if (usuario.isPresent()) {
+
+            usuarioDTO = ModelMapperUtil.transformDto(usuario.get(), UsuarioDTO.class);
+
+            return usuarioDTO;
+        } else {
+
+            return null;
+        }
+
+    }
+
     public List<UsuarioDTO> getUsersByRoleId(Long id) {
 
         List<Usuario> usuarios = usuarioRepositorio.findByRolId(id);

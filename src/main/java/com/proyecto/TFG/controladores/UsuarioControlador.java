@@ -60,4 +60,10 @@ public class UsuarioControlador {
         return usuarioServicio.getUsersByRoleId(roleId);
     }
 
+    @GetMapping("/email/{email}")
+    public ResponseEntity<UsuarioDTO> obtenerUsuarioEmail(@PathVariable String email){
+        UsuarioDTO clienteId = usuarioServicio.findByEmail(email);
+        return ResponseEntity.ok(clienteId);
+    }
+
 }
