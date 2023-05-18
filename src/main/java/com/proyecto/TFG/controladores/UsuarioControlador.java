@@ -55,4 +55,9 @@ public class UsuarioControlador {
         return  ResponseEntity.ok(estadoUsuarioEliminado);
     }
 
+    @GetMapping("/role/{roleId}")
+    public List<UsuarioDTO> getUsersByRoleId(@PathVariable("roleId") Long roleId) {
+        return usuarioServicio.getUsersByRoleId(roleId);
+    }
+
 }
