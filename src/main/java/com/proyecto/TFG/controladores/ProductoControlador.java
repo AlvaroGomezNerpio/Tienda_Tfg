@@ -25,12 +25,12 @@ public class ProductoControlador {
     }
 
     @GetMapping("/marca/{id}")
-    public List<ProductoDTO> obtenerProductoMarca(@PathVariable Long marcaId){
+    public List<ProductoDTO> obtenerProductoByMarca(@PathVariable Long marcaId){
         return productoServicio.findByCategoriaId(marcaId);
     }
 
     @GetMapping("/categoria/{id}")
-    public List<ProductoDTO> obtenerProductosCategoria(@PathVariable Long categoriaId){
+    public List<ProductoDTO> obtenerProductosByCategoria(@PathVariable Long categoriaId){
         return productoServicio.findByCategoriaId(categoriaId);
     }
 

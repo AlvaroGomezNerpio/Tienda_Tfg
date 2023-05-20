@@ -20,7 +20,7 @@ public class CategoriaControlador {
     @Autowired
     CategoriaServicioImpl categoriaServicio;
 
-    @GetMapping("listar")
+    @GetMapping("/listar")
     public List<CategoriaDTO> obtenerCategorias(){
         return categoriaServicio.obtenerTodo();
     }

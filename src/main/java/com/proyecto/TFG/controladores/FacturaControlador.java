@@ -19,6 +19,16 @@ public class FacturaControlador {
     @Autowired
     FacturaServicioImpl facturaServicio;
 
+    @GetMapping("/usuario/{id}")
+    public List<FacturaDTO> obtenerFacturasByUsuario(Long usuarioId){
+        return facturaServicio.findByUsuarioId(usuarioId);
+    }
+
+    @GetMapping("/direccion/{id}")
+    public List<FacturaDTO> obtenerFacturasByDireccionId(Long direccionId){
+        return facturaServicio.findByDireccionId(direccionId);
+    }
+
     @GetMapping("/listar")
     public List<FacturaDTO> obtenerFacturas(){
         return facturaServicio.obtenerTodo();

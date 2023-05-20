@@ -20,23 +20,23 @@ public class LineaPedidoControlador {
     @Autowired
     LineaPedidoServicioImpl lineaPedidoServicio;
 
-    @GetMapping("listar")
+    @GetMapping("/listar")
     public List<LineaPedidoDTO> obtenerLineasPedido(){
         return lineaPedidoServicio.obtenerTodo();
     }
 
-    @GetMapping("listar")
-    public List<LineaPedidoDTO> obtenerLineasPedidoFactura(Long facturaId){
+    @GetMapping("/factura/{id}")
+    public List<LineaPedidoDTO> obtenerLineasPedidoByFactura(Long facturaId){
         return lineaPedidoServicio.findByFacturaId(facturaId);
     }
 
-    @GetMapping("listar")
-    public List<LineaPedidoDTO> obtenerLineasPedidoPedido(Long pedidoId){
+    @GetMapping("/pedido/{id}")
+    public List<LineaPedidoDTO> obtenerLineasPedidoByPedido(Long pedidoId){
         return lineaPedidoServicio.findByPedidoId(pedidoId);
     }
 
-    @GetMapping("listar")
-    public List<LineaPedidoDTO> obtenerLineasPedidoProducto(Long productoId){
+    @GetMapping("/producto/{id}")
+    public List<LineaPedidoDTO> obtenerLineasPedidoByProducto(Long productoId){
         return lineaPedidoServicio.findByProductoId(productoId);
     }
 

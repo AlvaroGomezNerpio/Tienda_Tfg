@@ -24,12 +24,12 @@ public class FormaPagoUsuarioControlador {
         return formaPagoUsuarioServicio.obtenerTodo();
     }
 
-    @GetMapping("/listar")
+    @GetMapping("/usuario/{id}")
     public List<FormaPagoUsuarioDTO> obtenerFormasPagosUsuarioByUsuario(Long usuarioId){
         return formaPagoUsuarioServicio.findByUsuarioId(usuarioId);
     }
 
-    @GetMapping("/listar")
+    @GetMapping("/formaPago/{id}")
     public List<FormaPagoUsuarioDTO> obtenerFormasPagosUsuarioByFormaPago(Long formaPagoId){
         return formaPagoUsuarioServicio.findByFormaPagoId(formaPagoId);
     }

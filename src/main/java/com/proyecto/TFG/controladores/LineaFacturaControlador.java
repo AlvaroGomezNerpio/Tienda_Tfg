@@ -20,18 +20,18 @@ public class LineaFacturaControlador {
     @Autowired
     private LineaFacturaServicioImpl lineaFacturaService;
 
-    @GetMapping("listar")
+    @GetMapping("/listar")
     public List<LineaFacturaDTO> obtenerLineasFactura(){
         return lineaFacturaService.obtenerTodo();
     }
 
-    @GetMapping("listar")
-    public List<LineaFacturaDTO> obtenerLineasFacturaProducto(Long productoId){
+    @GetMapping("producto/{id}")
+    public List<LineaFacturaDTO> obtenerLineasFacturaByProducto(Long productoId){
         return lineaFacturaService.findByProductoId(productoId);
     }
 
-    @GetMapping("listar")
-    public List<LineaFacturaDTO> obtenerLineasFacturaFactura(Long facturaId){
+    @GetMapping("/factura/{id}")
+    public List<LineaFacturaDTO> obtenerLineasFacturaByFactura(Long facturaId){
         return lineaFacturaService.findByFacturaId(facturaId);
     }
 

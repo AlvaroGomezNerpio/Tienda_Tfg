@@ -61,7 +61,7 @@ public class UsuarioControlador {
     }
 
     @GetMapping("/email/{email}")
-    public ResponseEntity<UsuarioDTO> obtenerUsuarioEmail(@PathVariable String email){
+    public ResponseEntity<UsuarioDTO> obtenerUsuarioByEmail(@PathVariable String email){
         UsuarioDTO clienteId = usuarioServicio.findByEmail(email);
         return ResponseEntity.ok(clienteId);
     }
