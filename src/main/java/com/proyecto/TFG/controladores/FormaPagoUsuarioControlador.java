@@ -1,7 +1,6 @@
 package com.proyecto.TFG.controladores;
 
 import com.proyecto.TFG.dtos.FormaPagoUsuarioDTO;
-import com.proyecto.TFG.modelos.FormaPagoUsuario;
 import com.proyecto.TFG.servicios.FormaPagoUsuarioServicioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

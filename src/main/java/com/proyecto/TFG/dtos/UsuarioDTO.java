@@ -1,15 +1,5 @@
 package com.proyecto.TFG.dtos;
 
-import com.proyecto.TFG.modelos.Direccion;
-import com.proyecto.TFG.modelos.Factura;
-import com.proyecto.TFG.modelos.FormaPagoUsuario;
-import com.proyecto.TFG.modelos.Pedido;
-import com.proyecto.TFG.modelos.Rol;
-import jakarta.persistence.*;
-
-import java.io.Serializable;
-import java.util.List;
-
 public class UsuarioDTO{
 
     private long Id;
