@@ -8,8 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/producto")
@@ -32,6 +34,66 @@ public class ProductoControlador {
     @GetMapping("/categoria/{id}")
     public List<ProductoDTO> obtenerProductosByCategoria(@PathVariable Long categoriaId){
         return productoServicio.findByCategoriaId(categoriaId);
+    }
+
+    @GetMapping("/random/{num}")
+    public List<ProductoDTO> obtenerProductosRamdon(int num){
+
+        List<ProductoDTO> productosRandom = new ArrayList<>();
+        List<ProductoDTO> productos = productoServicio.obtenerTodo();
+        int numProductos = productos.size();
+
+        for (int i = 0; i < num; i++) {
+
+            Random random = new Random();
+            int randomNumber = random.nextInt(numProductos+1);
+
+            productosRandom.add(productos.get(randomNumber));
+
+        }
+
+        return productosRandom;
+
+    }
+
+    @GetMapping("/random/categoria/{id}/{num}")
+    public List<ProductoDTO> obtenerProductosRamdonByCategoria(Long categoriaId, int num){
+
+        List<ProductoDTO> productosRandom = new ArrayList<>();
+        List<ProductoDTO> productos = productoServicio.findByCategoriaId(categoriaId);
+        int numProductos = productos.size();
+
+        for (int i = 0; i < num; i++) {
+
+            Random random = new Random();
+            int randomNumber = random.nextInt(numProductos+1);
+
+            productosRandom.add(productos.get(randomNumber));
+
+        }
+
+        return productosRandom;
+
+    }
+
+    @GetMapping("/random/marca/{id}/{num}")
+    public List<ProductoDTO> obtenerProductosRamdonByMarca(Long marcaId, int num){
+
+        List<ProductoDTO> productosRandom = new ArrayList<>();
+        List<ProductoDTO> productos = productoServicio.findByMarcaId(marcaId);
+        int numProductos = productos.size();
+
+        for (int i = 0; i < num; i++) {
+
+            Random random = new Random();
+            int randomNumber = random.nextInt(numProductos+1);
+
+            productosRandom.add(productos.get(randomNumber));
+
+        }
+
+        return productosRandom;
+
     }
 
     @PostMapping("/guardar")
