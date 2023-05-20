@@ -25,7 +25,7 @@ public class EjemplarControlador {
         return ejemplarServicio.obtenerTodo();
     }
 
-    @GetMapping("/producto/{id}")
+    @GetMapping("/producto/{productoId}")
     public List<EjemplarDTO> obtenerEjemplaresByProducto(Long productoId){
         return ejemplarServicio.findByProductoId(productoId);
     }

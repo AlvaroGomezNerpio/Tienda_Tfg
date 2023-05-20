@@ -25,12 +25,12 @@ public class LineaFacturaControlador {
         return lineaFacturaService.obtenerTodo();
     }
 
-    @GetMapping("producto/{id}")
+    @GetMapping("producto/{productoId}")
     public List<LineaFacturaDTO> obtenerLineasFacturaByProducto(Long productoId){
         return lineaFacturaService.findByProductoId(productoId);
     }
 
-    @GetMapping("/factura/{id}")
+    @GetMapping("/factura/{facturaId}")
     public List<LineaFacturaDTO> obtenerLineasFacturaByFactura(Long facturaId){
         return lineaFacturaService.findByFacturaId(facturaId);
     }

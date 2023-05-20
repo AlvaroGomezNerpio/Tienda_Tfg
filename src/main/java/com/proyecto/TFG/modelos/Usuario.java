@@ -41,6 +41,9 @@ public class Usuario implements Serializable {
     @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pedido> pedidos;
 
+    @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comentario> comentarios;
+
     public Usuario(){
 
     }
@@ -139,5 +142,13 @@ public class Usuario implements Serializable {
 
     public void setFPUsuario(List<com.proyecto.TFG.modelos.FPUsuario> FPUsuario) {
         this.FPUsuario = FPUsuario;
+    }
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
     }
 }

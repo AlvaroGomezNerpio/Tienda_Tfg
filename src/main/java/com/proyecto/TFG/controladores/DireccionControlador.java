@@ -26,7 +26,7 @@ public class DireccionControlador {
         return direccionServicio.obtenerTodo();
     }
 
-    @GetMapping("/usuario/{id}")
+    @GetMapping("/usuario/{usuarioId}")
     public List<DireccionDTO> obtenerDireccionesByUsusario(Long usuarioId){
         return direccionServicio.findByUsuarioId(usuarioId);
     }

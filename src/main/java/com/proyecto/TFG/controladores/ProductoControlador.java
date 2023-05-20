@@ -24,16 +24,16 @@ public class ProductoControlador {
     }
 
     @GetMapping("/nombre/{texto}")
-    public List<ProductoDTO> obtenerProductosByNombreContains(@RequestBody String texto){
+    public List<ProductoDTO> obtenerProductosByNombreContains(@PathVariable String texto){
         return productoServicio.findByNombreContaining(texto);
     }
 
-    @GetMapping("/marca/{id}")
+    @GetMapping("/marca/{marcaId}")
     public List<ProductoDTO> obtenerProductoByMarca(@PathVariable Long marcaId){
         return productoServicio.findByCategoriaId(marcaId);
     }
 
-    @GetMapping("/categoria/{id}")
+    @GetMapping("/categoria/{categoriaId}")
     public List<ProductoDTO> obtenerProductosByCategoria(@PathVariable Long categoriaId){
         return productoServicio.findByCategoriaId(categoriaId);
     }
