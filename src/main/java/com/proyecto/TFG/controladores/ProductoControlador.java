@@ -8,10 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @RestController
 @RequestMapping("/producto")
@@ -26,6 +23,11 @@ public class ProductoControlador {
         return productoServicio.obtenerTodo();
     }
 
+    @GetMapping("/nombre/{texto}")
+    public List<ProductoDTO> obtenerProductosByNombreContains(@RequestBody String texto){
+        return productoServicio.findByNombreContaining(texto);
+    }
+
     @GetMapping("/marca/{id}")
     public List<ProductoDTO> obtenerProductoByMarca(@PathVariable Long marcaId){
         return productoServicio.findByCategoriaId(marcaId);
@@ -37,7 +39,7 @@ public class ProductoControlador {
     }
 
     @GetMapping("/random/{num}")
-    public List<ProductoDTO> obtenerProductosRamdon(int num){
+    public List<ProductoDTO> obtenerProductosRamdon(@PathVariable int num){
 
         List<ProductoDTO> productosRandom = new ArrayList<>();
         List<ProductoDTO> productos = productoServicio.obtenerTodo();
@@ -56,8 +58,8 @@ public class ProductoControlador {
 
     }
 
-    @GetMapping("/random/categoria/{id}/{num}")
-    public List<ProductoDTO> obtenerProductosRamdonByCategoria(Long categoriaId, int num){
+    @GetMapping("/random/categoria/{categoriaId}/{num}")
+    public List<ProductoDTO> obtenerProductosRamdonByCategoria(@PathVariable Long categoriaId, @PathVariable int num){
 
         List<ProductoDTO> productosRandom = new ArrayList<>();
         List<ProductoDTO> productos = productoServicio.findByCategoriaId(categoriaId);
@@ -76,8 +78,8 @@ public class ProductoControlador {
 
     }
 
-    @GetMapping("/random/marca/{id}/{num}")
-    public List<ProductoDTO> obtenerProductosRamdonByMarca(Long marcaId, int num){
+    @GetMapping("/random/marca/{marcaId}/{num}")
+    public List<ProductoDTO> obtenerProductosRamdonByMarca(@PathVariable long marcaId,@PathVariable int num){
 
         List<ProductoDTO> productosRandom = new ArrayList<>();
         List<ProductoDTO> productos = productoServicio.findByMarcaId(marcaId);
@@ -103,7 +105,7 @@ public class ProductoControlador {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductoDTO> obtenerProducto(@PathVariable long id){
+    public ResponseEntity<ProductoDTO> obtenerProducto(@PathVariable Long id){
         ProductoDTO productoId = productoServicio.obtenerPorId(id);
         return ResponseEntity.ok(productoId);
     }
@@ -111,7 +113,7 @@ public class ProductoControlador {
     //implementar update
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<HashMap<String, Boolean>> eliminarProducto(@PathVariable long id){
+    public ResponseEntity<HashMap<String, Boolean>> eliminarProducto(@PathVariable Long id){
         this.productoServicio.eliminar(id);
 
         HashMap<String, Boolean> estadoProductoEliminado = new HashMap<>();
