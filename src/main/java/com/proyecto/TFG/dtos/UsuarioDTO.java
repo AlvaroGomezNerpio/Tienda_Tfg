@@ -7,6 +7,7 @@ public class UsuarioDTO{
     private String email;
     private String telefono;
     private String password;
+    private String cesta;
     private RolDTO rol;
 
     public UsuarioDTO(){
@@ -61,4 +62,11 @@ public class UsuarioDTO{
         this.rol = rol;
     }
 
+    public String getCesta() {
+        return cesta;
+    }
+
+    public void setCesta(String cesta) {
+        this.cesta = cesta;
+    }
 }
