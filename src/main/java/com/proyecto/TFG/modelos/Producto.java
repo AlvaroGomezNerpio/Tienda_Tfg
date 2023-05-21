@@ -41,7 +41,7 @@ public class Producto implements Serializable {
     @OneToMany(mappedBy = "producto",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LineaPedido> lineaPedidos;
 
-    @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "producto",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comentario> comentarios;
 
     public Producto(){
@@ -128,11 +128,4 @@ public class Producto implements Serializable {
         this.lineaPedidos = lineaPedidos;
     }
 
-    public List<Comentario> getComentarios() {
-        return comentarios;
-    }
-
-    public void setComentarios(List<Comentario> comentarios) {
-        this.comentarios = comentarios;
-    }
 }

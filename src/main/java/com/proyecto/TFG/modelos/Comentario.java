@@ -5,10 +5,11 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name  = "Comebtarios", catalog = "tfg")
+@Table(name  = "comentarios", catalog = "tfg")
 public class Comentario implements Serializable {
 
     private static final long serialVersionUID = 8117386946996287653L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", unique = true, nullable = true)
@@ -17,12 +18,15 @@ public class Comentario implements Serializable {
     private String  mensaje;
     @Column(name = "Puntuacion")
     private int puntuacion;
-    @ManyToOne
-    @JoinColumn(name = "Productos_Id")
-    private Producto producto;
-    @ManyToOne
+
+    @ManyToOne()
     @JoinColumn(name = "Usuarios_Id")
     private Usuario usuario;
+
+    @ManyToOne()
+    @JoinColumn(name = "Productos_Id")
+    private Producto producto;
+
 
     public Comentario(){
 
@@ -52,19 +56,6 @@ public class Comentario implements Serializable {
         this.puntuacion = puntuacion;
     }
 
-    public Producto getProducto() {
-        return producto;
-    }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 }
