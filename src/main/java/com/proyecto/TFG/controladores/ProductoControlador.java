@@ -110,8 +110,6 @@ public class ProductoControlador {
         return ResponseEntity.ok(productoId);
     }
 
-
-
     @DeleteMapping("/{id}")
     public ResponseEntity<HashMap<String, Boolean>> eliminarProducto(@PathVariable Long id){
         this.productoServicio.eliminar(id);

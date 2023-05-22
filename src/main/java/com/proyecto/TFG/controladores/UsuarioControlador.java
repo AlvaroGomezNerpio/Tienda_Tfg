@@ -51,7 +51,7 @@ public class UsuarioControlador {
             usuarioId.setNombre(usuario.getNombre());
         }
         if(usuario.getPassword() != null) {
-            usuarioId.setPassword(usuario.getPassword());
+            usuarioId.setPassword(new BCryptPasswordEncoder(8).encode(usuario.getPassword()));
         }
         if(usuario.getEmail() != null) {
             usuarioId.setEmail(usuario.getEmail());
