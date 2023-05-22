@@ -48,7 +48,7 @@ public class ProductoControlador {
         for (int i = 0; i < num; i++) {
 
             Random random = new Random();
-            int randomNumber = random.nextInt(numProductos+1);
+            int randomNumber = random.nextInt(numProductos);
 
             productosRandom.add(productos.get(randomNumber));
 
@@ -68,7 +68,7 @@ public class ProductoControlador {
         for (int i = 0; i < num; i++) {
 
             Random random = new Random();
-            int randomNumber = random.nextInt(numProductos+1);
+            int randomNumber = random.nextInt(numProductos);
 
             productosRandom.add(productos.get(randomNumber));
 
@@ -88,7 +88,7 @@ public class ProductoControlador {
         for (int i = 0; i < num; i++) {
 
             Random random = new Random();
-            int randomNumber = random.nextInt(numProductos+1);
+            int randomNumber = random.nextInt(numProductos);
 
             productosRandom.add(productos.get(randomNumber));
 
@@ -110,7 +110,7 @@ public class ProductoControlador {
         return ResponseEntity.ok(productoId);
     }
 
-    //implementar update
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<HashMap<String, Boolean>> eliminarProducto(@PathVariable Long id){

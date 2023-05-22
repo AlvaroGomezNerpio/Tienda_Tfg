@@ -7,6 +7,7 @@ import com.proyecto.TFG.modelos.Usuario;
 public class ComentarioDTO {
 
     private long Id;
+    private String titulo;
     private String  mensaje;
     private int puntuacion;
     private Producto producto;
@@ -56,4 +57,11 @@ public class ComentarioDTO {
         this.usuario = usuario;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 }

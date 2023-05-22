@@ -14,6 +14,8 @@ public class Comentario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", unique = true, nullable = true)
     private long Id;
+    @Column(name = "Titulo")
+    private String titulo;
     @Column(name = "Mensaje")
     private String  mensaje;
     @Column(name = "Puntuacion")
@@ -56,6 +58,27 @@ public class Comentario implements Serializable {
         this.puntuacion = puntuacion;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
 
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
 }
