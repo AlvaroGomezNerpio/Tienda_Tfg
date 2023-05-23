@@ -144,5 +144,11 @@ public class Usuario implements Serializable {
         this.FPUsuario = FPUsuario;
     }
 
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
 
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
 }

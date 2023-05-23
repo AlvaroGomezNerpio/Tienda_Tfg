@@ -128,4 +128,11 @@ public class Producto implements Serializable {
         this.lineaPedidos = lineaPedidos;
     }
 
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
 }
