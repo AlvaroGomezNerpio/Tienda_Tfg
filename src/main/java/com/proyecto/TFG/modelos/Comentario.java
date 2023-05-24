@@ -20,6 +20,8 @@ public class Comentario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", unique = true, nullable = true)
     private long Id;
+    @Column(name = "Titulo")
+    private String  titulo;
     @Column(name = "Mensaje")
     private String  mensaje;
     @Column(name = "Puntuacion")

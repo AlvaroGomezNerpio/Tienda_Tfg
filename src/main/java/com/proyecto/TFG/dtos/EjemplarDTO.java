@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -14,8 +13,8 @@ public class EjemplarDTO{
 
     private long Id;
     private String serie;
-    private Date fechaVenta;
-    private Date fechaCompra;
+    private LocalDate fechaVenta;
+    private LocalDate fechaCompra;
     private int unidades;
     private ProductoDTOL producto;
 

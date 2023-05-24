@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class ComentarioDTO {
 
     private long Id;
+    private String  titulo;
     private String  mensaje;
     private int puntuacion;
     private ProductoDTOL producto;
