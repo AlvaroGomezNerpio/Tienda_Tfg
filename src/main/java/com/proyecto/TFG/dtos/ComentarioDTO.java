@@ -1,22 +1,20 @@
 package com.proyecto.TFG.dtos;
 
+import com.proyecto.TFG.modelos.Producto;
+import com.proyecto.TFG.modelos.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.Date;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EjemplarDTO{
+public class ComentarioDTO {
 
     private long Id;
-    private String serie;
-    private Date fechaVenta;
-    private Date fechaCompra;
-    private int unidades;
+    private String  mensaje;
+    private int puntuacion;
     private ProductoDTOL producto;
+    private UsuarioDTOL usuario;
 
 }
