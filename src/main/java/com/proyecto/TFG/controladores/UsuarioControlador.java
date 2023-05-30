@@ -41,7 +41,7 @@ public class UsuarioControlador {
         UsuarioDTO usuarioId = usuarioServicio.obtenerPorId(id);
 
         if(usuarioId.getCesta() == null){
-            usuarioId.setCesta("");
+            usuarioId.setCesta("{}");
         }
 
         return ResponseEntity.ok(usuarioId);
@@ -95,7 +95,7 @@ public class UsuarioControlador {
         UsuarioDTO clienteId = usuarioServicio.findByEmail(email);
         clienteId.setPassword(null);
         if(clienteId.getCesta() == null){
-            clienteId.setCesta("");
+            clienteId.setCesta("{}");
         }
         return ResponseEntity.ok(clienteId);
     }
