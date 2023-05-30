@@ -41,9 +41,7 @@ public class UsuarioControlador {
         UsuarioDTO usuarioId = usuarioServicio.obtenerPorId(id);
 
         if(usuarioId.getCesta() == null){
-
             usuarioId.setCesta("");
-
         }
 
         return ResponseEntity.ok(usuarioId);
@@ -96,6 +94,9 @@ public class UsuarioControlador {
     public ResponseEntity<UsuarioDTO> obtenerUsuarioByEmail(@PathVariable String email){
         UsuarioDTO clienteId = usuarioServicio.findByEmail(email);
         clienteId.setPassword(null);
+        if(clienteId.getCesta() == null){
+            clienteId.setCesta("");
+        }
         return ResponseEntity.ok(clienteId);
     }
 
