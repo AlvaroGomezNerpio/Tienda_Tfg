@@ -39,6 +39,13 @@ public class UsuarioControlador {
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioDTO> obtenerUsuario(@PathVariable long id){
         UsuarioDTO usuarioId = usuarioServicio.obtenerPorId(id);
+
+        if(usuarioId.getCesta() == null){
+
+            usuarioId.setCesta("");
+
+        }
+
         return ResponseEntity.ok(usuarioId);
     }
 
