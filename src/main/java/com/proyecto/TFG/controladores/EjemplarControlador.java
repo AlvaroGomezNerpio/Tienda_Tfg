@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -29,6 +30,34 @@ public class EjemplarControlador {
     @GetMapping("/producto/{productoId}")
     public List<EjemplarDTO> obtenerEjemplaresByProducto(@PathVariable Long productoId){
         return ejemplarServicio.findByProductoId(productoId);
+    }
+
+    @GetMapping("/count/producto/tienda/{productoId}/{tiendaId}")
+    public int countEjemplaresByProductoByTienda(@PathVariable Long productoId, @PathVariable Long tiendaId){
+
+        List<EjemplarDTO> ejemplares = ejemplarServicio.findByProductoId(productoId);
+        List<EjemplarDTO> ejemplaresByTiendaByProducto = new ArrayList<>();
+        ejemplares.forEach(ejemplar ->{
+            if (ejemplar.getTienda().getId() == tiendaId){
+                ejemplaresByTiendaByProducto.add(ejemplar);
+            }
+        });
+        return ejemplaresByTiendaByProducto.size();
+
+    }
+
+    @GetMapping("/producto/tienda/{productoId}/{tiendaId}")
+    public List<EjemplarDTO> obtenerEjemplaresByProductoByTienda(@PathVariable Long productoId, @PathVariable Long tiendaId){
+
+        List<EjemplarDTO> ejemplares = ejemplarServicio.findByProductoId(productoId);
+        List<EjemplarDTO> ejemplaresByTiendaByProducto = new ArrayList<>();
+        ejemplares.forEach(ejemplar ->{
+            if (ejemplar.getTienda().getId() == tiendaId){
+                ejemplaresByTiendaByProducto.add(ejemplar);
+            }
+        });
+        return ejemplaresByTiendaByProducto;
+
     }
 
     @PostMapping("/guardar")

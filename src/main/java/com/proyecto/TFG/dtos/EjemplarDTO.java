@@ -17,5 +17,6 @@ public class EjemplarDTO{
     private LocalDate fechaCompra;
     private int unidades;
     private ProductoDTOL producto;
+    private TiendaDTO tienda;
 
 }
