@@ -30,6 +30,8 @@ public class Ejemplar implements Serializable {
     private Date fechaCompra;
     @Column(name = "Unidades")
     private int unidades;
+    @Column(name = "Estado")
+    private String estado;
     @JoinColumn(name = "Tiendas_Id")
     private Tienda tienda;
     @ManyToOne()
