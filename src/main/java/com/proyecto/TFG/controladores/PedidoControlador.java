@@ -45,6 +45,9 @@ public class PedidoControlador {
     public ResponseEntity<PedidoDTO> guardarPedido(@RequestBody PedidoDTO pedido){
 
         LocalDate fechaActual = LocalDate.now();
+
+        pedido.setFecha(fechaActual);
+
         fechaActual = fechaActual.plusDays(3);
 
         pedido.setFechaEntrega(fechaActual);
