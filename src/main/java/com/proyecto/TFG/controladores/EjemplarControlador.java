@@ -31,7 +31,17 @@ public class EjemplarControlador {
 
     @GetMapping("/producto/{productoId}")
     public List<EjemplarDTO> obtenerEjemplaresByProducto(@PathVariable Long productoId){
-        return ejemplarServicio.findByProductoId(productoId);
+        List<EjemplarDTO> ejemplares = ejemplarServicio.findByProductoId(productoId);
+        List<EjemplarDTO> ejemplaresDisponibles = new ArrayList<>();
+
+        for (EjemplarDTO ejemplar : ejemplares) {
+            if (ejemplar.getEstado() == "Disponible"){
+                ejemplaresDisponibles.add(ejemplar);
+            }
+        }
+
+        return ejemplares;
+
     }
 
     @GetMapping("/count/producto/tienda/{productoId}/{tiendaId}")

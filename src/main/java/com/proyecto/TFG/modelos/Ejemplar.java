@@ -32,6 +32,7 @@ public class Ejemplar implements Serializable {
     private int unidades;
     @Column(name = "Estado")
     private String estado;
+    @ManyToOne()
     @JoinColumn(name = "Tiendas_Id")
     private Tienda tienda;
     @ManyToOne()
