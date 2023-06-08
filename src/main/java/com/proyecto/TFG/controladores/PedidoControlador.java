@@ -1,7 +1,6 @@
 package com.proyecto.TFG.controladores;
 
 import com.proyecto.TFG.dtos.PedidoDTO;
-import com.proyecto.TFG.modelos.Pedido;
 import com.proyecto.TFG.servicios.PedidoServicioImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,6 +28,19 @@ public class PedidoControlador {
     @GetMapping("/usuario/{usuarioId}")
     public List<PedidoDTO> obtenerPedidosByUsuario(Long usuarioId){
         return pedidoServicio.findByUsuarioId(usuarioId);
+    }
+
+    @GetMapping("/usuario/end/{usuarioId}")
+    public PedidoDTO obtenerEndFacturaByUsuario(@PathVariable Long usuarioId){
+        List<PedidoDTO> pedidosUsusario = pedidoServicio.findByUsuarioId(usuarioId);
+
+        int indice = pedidosUsusario.size() -1;
+
+        System.out.println(indice);
+
+        PedidoDTO pedido =  pedidosUsusario.get(indice);
+
+        return pedido;
     }
 
     @GetMapping("/direccion/{direccionId}")
