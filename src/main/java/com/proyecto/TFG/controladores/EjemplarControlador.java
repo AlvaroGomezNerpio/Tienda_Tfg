@@ -35,12 +35,13 @@ public class EjemplarControlador {
         List<EjemplarDTO> ejemplaresDisponibles = new ArrayList<>();
 
         for (EjemplarDTO ejemplar : ejemplares) {
-            if (ejemplar.getEstado() == "Disponible"){
+            String estado = ejemplar.getEstado();
+            if (estado != null && estado.equals("disponible")){
                 ejemplaresDisponibles.add(ejemplar);
             }
         }
 
-        return ejemplares;
+        return ejemplaresDisponibles;
 
     }
 
@@ -50,7 +51,7 @@ public class EjemplarControlador {
         List<EjemplarDTO> ejemplares = ejemplarServicio.findByProductoId(productoId);
         List<EjemplarDTO> ejemplaresByTiendaByProducto = new ArrayList<>();
         ejemplares.forEach(ejemplar ->{
-            if (ejemplar.getTienda().getId() == tiendaId){
+            if (ejemplar.getTienda().getId() == tiendaId && ejemplar.getEstado() != null && ejemplar.getEstado().equals("disponible")){
                 ejemplaresByTiendaByProducto.add(ejemplar);
             }
         });
@@ -64,7 +65,7 @@ public class EjemplarControlador {
         List<EjemplarDTO> ejemplares = ejemplarServicio.findByProductoId(productoId);
         List<EjemplarDTO> ejemplaresByTiendaByProducto = new ArrayList<>();
         ejemplares.forEach(ejemplar ->{
-            if (ejemplar.getTienda().getId() == tiendaId){
+            if (ejemplar.getTienda().getId() == tiendaId && ejemplar.getEstado() != null && ejemplar.getEstado().equals("disponible")){
                 ejemplaresByTiendaByProducto.add(ejemplar);
             }
         });
