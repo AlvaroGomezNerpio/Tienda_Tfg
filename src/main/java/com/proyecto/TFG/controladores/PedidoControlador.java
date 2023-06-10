@@ -26,7 +26,7 @@ public class PedidoControlador {
     }
 
     @GetMapping("/usuario/{usuarioId}")
-    public List<PedidoDTO> obtenerPedidosByUsuario(Long usuarioId){
+    public List<PedidoDTO> obtenerPedidosByUsuario(@PathVariable Long usuarioId){
         return pedidoServicio.findByUsuarioId(usuarioId);
     }
 
@@ -44,12 +44,12 @@ public class PedidoControlador {
     }
 
     @GetMapping("/direccion/{direccionId}")
-    public List<PedidoDTO> obtenerPedidosByDireccion(Long direccionId){
+    public List<PedidoDTO> obtenerPedidosByDireccion(@PathVariable Long direccionId){
         return pedidoServicio.findByDireccionId(direccionId);
     }
 
     @GetMapping("/formaPago/{formaPagoId}")
-    public List<PedidoDTO> obtenerPedidosByFormaPago(Long formaPagoId){
+    public List<PedidoDTO> obtenerPedidosByFormaPago(@PathVariable Long formaPagoId){
         return pedidoServicio.findByFormaPagoId(formaPagoId);
     }
 
