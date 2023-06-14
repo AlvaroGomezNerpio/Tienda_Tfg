@@ -73,7 +73,19 @@ public class PedidoControlador {
         return ResponseEntity.ok(pedidoId);
     }
 
-    //implementar update
+    @PatchMapping("/{id}")
+    public ResponseEntity<PedidoDTO> actualizarPedidoParcial(@PathVariable long id, @RequestBody PedidoDTO pedido){
+
+        PedidoDTO pedidoId = pedidoServicio.obtenerPorId(id);
+
+        if (pedido.getEstado() != null){
+            pedidoId.setEstado(pedido.getEstado());
+        }
+
+        PedidoDTO pedidoActualizado = pedidoServicio.guardar(pedidoId);
+        return new ResponseEntity<>(pedidoActualizado, HttpStatus.CREATED);
+
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<HashMap<String, Boolean>> eliminarPedido(@PathVariable long id){
